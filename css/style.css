@@ -1,6 +1,6 @@
 body
 {
-    background: linear-gradient(180deg, rgb(42, 7, 238) 0%, rgb(228, 21, 90) 35%, rgb(224, 9, 9) 100%);
+    background: linear-gradient(180deg, rgb(255, 0, 191) 0%, rgb(238, 134, 15) 35%, rgb(247, 10, 10) 100%);
 }
 .glowny
 {
@@ -73,7 +73,7 @@ a
     height: 100px;
     width: 100%;
 }
-.panel2
+.panel a
 {
     text-decoration: none;
 }

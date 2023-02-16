@@ -7,7 +7,7 @@
         <div class="glowny">
     <?php
         include "../includes/header.php";
-        $con = new mysqli("127.0.0.1","root","","Projekt");
+        $con = new mysqli("127.0.0.1","root","","projekt");
         echo '<form method="POST">';
         $res = $con->query("SELECT * FROM film");
         $cos = $res->fetch_all();

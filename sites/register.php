@@ -18,7 +18,7 @@
         {
             if($_POST['email']!="" && $_POST['password']!="")
             {
-                $sqlquery = "INSERT INTO `user` VALUES ('".count($cos)."','".$_POST["imie"]."','".$_POST["nazwisko"]."', '".$_POST['password']."', '".$_POST['email']."', '0');";
+                $sqlquery = "INSERT INTO `user`(imie,nazwisko,password,email,is_admin) VALUES ('".$_POST["imie"]."','".$_POST["nazwisko"]."', '".$_POST['password']."', '".$_POST['email']."', '0');";
                 $con->query($sqlquery);
                 header('location: login.php');
             }

@@ -13,10 +13,10 @@
         $cos = $res->fetch_all();
 
         echo '<h1>Dodaj film:</h1>
-        <div class="details">Nazwa: <input name="nazwa" value=""><br>
-        Typ: <input name="typ" value=""><br>
-        Opis: <input name="opis" value=""><br>
-        foto </div>';
+        <div class="details">Nazwa: <input name="name" value=""><br>
+        Opis: <input name="type" value=""><br>
+        Typ: <input name="description" value=""><br>
+        Zdjęcie </div>';
         echo '<input type="submit">';
         echo '<br><a href="../index.php?page=1">Strona Główna</a>';
         echo '</form>';
@@ -24,9 +24,9 @@
         if($_POST!=NULL)
         {
             print_r($_POST);
-            if($_POST["nazwa"]!="" && $_POST["typ"]!="" && $_POST["opis"]!="")
+            if($_POST["name"]!="" && $_POST["type"]!="" && $_POST["description"]!="")
             {
-                $sqlquery = "INSERT INTO `film` VALUES ('".count($cos1)."', '".$_POST['nazwa']."', '".$_POST['opis']."','".$_POST['typ']."');";
+                $sqlquery = "INSERT INTO `film`(name,type,description) VALUES ('".$_POST['name']."', '".$_POST['description']."','".$_POST['type']."');";
                 $con->query($sqlquery);
                 header('location: ../index.php?page=1');
             }

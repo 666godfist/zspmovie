@@ -6,6 +6,13 @@
         <center>
     <?php
         include "./includes/header.php";
+        if($_GET==null)
+        {
+        header("Location: index.php?page=1");
+        include "includes/nav.php";
+        }
+        $res1 = $con->query("SELECT * FROM user");
+        $cos1 = $res1->fetch_all();
 
         echo '<form method="POST">';
         if($_SESSION["email"])
@@ -42,15 +49,15 @@
 
         for($i = 0; $i<count($cos22);$i++)
         {
-            echo '<div class="blok"><div class="lewy">Nazwa: '.$cos22[$i][1].'<br>Typ: '.$cos22[$i][3].'<br> Opis: '.$cos22[$i][2].'<br></div><div class="prawy">foto</div><div class="lewydol">';
+            echo '<div class="blok"><div class="lewy">Nazwa: '.$cos22[$i][1].'<br>Typ: '.$cos22[$i][3].'<br> Opis: '.$cos22[$i][2].'<br></div><div class="prawy">Zdjęcie:</div><div class="lewydol">';
             if($_SESSION["admin"]==null)
             {
                echo '<a href="sites/movie-details.php?id='.$i.'">Szczegóły</a>';
             }
             if($_SESSION["admin"]==1)
             {
-                echo '<a href="sites/movie-details.php?id='.$i.'">Podgląd</a>';
-                echo '<a href="admin/movie-details.php?id='.$i.'">Szczegóły administratora</a>';
+                echo '<a href="sites/movie-details.php?id='.$i.'">Podgląd     </a>';
+                echo '<a href="admin/movie-details.php?id='.$i.'">     Szczegóły administratora</a>';
             }
             echo '</div></div><br>';
         }
@@ -62,15 +69,16 @@
             echo '<a href="index.php?page='.$i.'">'.$i.'</a>';
         }
         echo '</div></form>';
-
-        echo '</div><a href="admin/logout.php">Administrator</a>';
+        
+        echo '</div><a href="admin/logout.php">Wyloguj/Zaloguj Administratora</a>';
         if($_SESSION["id"])
         {
             if($cos1[$_SESSION["id"]][5]==1)
             {
-                echo '<br>panel admina<br> <a href="admin/add-admin.php">Dodaj nowego Administratora</a><a href="admin/movie-list.php?page=1">Lista Wszystkich Filmów</a>';
+                echo '<h1><br>Panel Administratora: <br></h1> <a href="admin/add-admin.php">Dodaj nowego Administratora</a><a href="admin/movie-list.php?page=1">Lista Wszystkich Filmów</a>';
             }
         }
+        
     ?>
         </center>
     </body>
